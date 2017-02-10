@@ -5,7 +5,7 @@ function Connect()
 {
  $dbhost = "localhost";
  $dbuser = "root";
- $dbpass = "sgtce40group!";
+ $dbpass = "newpassword43!";
  $dbname = "Natural Products DB";
  
  // Create connection
