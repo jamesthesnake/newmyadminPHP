@@ -14,7 +14,7 @@
 
 <br>
 
-<form enctype="multipart/form-data" action="welcome_get.php" method="post">
+<form action="welcome_get.php" method="post">
   Name: <input type="text" name="tables"><br>
   E-mail: <input type="text" name="dbs"><br>
     Select csv to upload: <input type="file" name="filesToUpload" id="filersToUpload"><br>
