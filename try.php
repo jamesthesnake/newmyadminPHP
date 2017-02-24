@@ -90,7 +90,16 @@ $mysqli->close();
 			  $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
                     
 			  foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
-			  echo $v;
+              if(strpos($v, 'http') !== 51){
+              
+              echo $v ;
+              } else{
+                  $finals = "<th><a href= '".$v."'>";
+                  #$finals .= $v;
+                 #$finals .="</a></th>";
+                  echo $finals;
+              }
+
 			  }
 			  }
 			  catch(PDOException $e) {
