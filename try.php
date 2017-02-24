@@ -1,17 +1,3 @@
-<!DOCTYPE  HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-  <head>
-      <meta  http-equiv="Content-Type" content="text/html;  charset=iso-8859-1">
-          <title>Search  Contacts</title>
-	    </head>
-	      <p><body>
-	          <h3>Search  Contacts Details</h3>
-		      <p>You  may search either by first or last name</p>
-		          <form  method="post" action="search.php?go"  id="searchform">
-			        <input  type="text" name="name">
-				      <input  type="submit" name="submit" value="Search">
-			  </form>
-			  
 
 			     <?php
 
@@ -19,6 +5,7 @@
 				$password = "sgtce40group!";
 				$username = "root";
 				$dbname = "Natural Products DB";
+                $table=$_POST['table']
 			/* $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 				                                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				$dstate = $conn->prepare("SHOW COLUMNS FROM Ch_primer");
@@ -76,7 +63,7 @@ if ($mysqli->connect_errno) {
 
     // Set character set, to show its impact on some values (e.g., length in bytes)
 
-    $query = "SELECT * FROM Ch_primer";
+    $query = "SELECT * FROM $table";
 
     
     if ($result = $mysqli->query($query)) {
@@ -96,7 +83,7 @@ $mysqli->close();
                 echo "<table style='border: solid 1px black;'>";
 				echo $final;
                     
-			     $stmt = $conn->prepare("SELECT * FROM Ch_primer");
+			     $stmt = $conn->prepare("SELECT * FROM $table");
 			  $stmt->execute();
 
 			  // set the resulting array to associative
@@ -114,6 +101,3 @@ $mysqli->close();
 
 			     
 			  ?>
-					    </body>
-					    </html>
-					    </p>
