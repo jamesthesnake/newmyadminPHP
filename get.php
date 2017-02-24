@@ -1,29 +1,10 @@
-
-			     <?php
+<?php
 
 				$servername = "localhost";
 				$password = "sgtce40group!";
 				$username = "root";
 				$dbname = "Natural Products DB";
-                $table=$_POST['table'];
-			/* $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
-				                                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$dstate = $conn->prepare("SHOW COLUMNS FROM Ch_primer");
-				$dstate->execute();
-
-			     // set the resulting array to associative
-			     $result = $dstate->setFetchMode(PDO::FETCH_ASSOC);
-
-			     foreach(new TableRows(new RecursiveArrayIterator($dstate->fetchAll())) as $k=>$v) {
-			     echo $v;
-			     }
-			     
-			     catch(PDOException $e) {
-			     echo "Error: " . $e->getMessage();
-			     }
-			     $conn = null;
-			                               echo "</table>"; */
-				
+                $table="twist_plates";
 
 				class TableRows extends RecursiveIteratorIterator {
 				function __construct($it) {
@@ -82,8 +63,8 @@ if ($mysqli->connect_errno) {
 $mysqli->close();
                 echo "<table style='border: solid 1px black;'>";
 				echo $final;
-                    
-			     $stmt = $conn->prepare("SELECT * FROM $table");
+                 $seq=$_POST['Sequence'];;   
+			     $stmt = $conn->prepare("SELECT * FROM $table WHERE Insert_sequence LIKE '%$seq%'");
 			  $stmt->execute();
 
 			  // set the resulting array to associative
@@ -100,4 +81,5 @@ $mysqli->close();
 			  echo "</table>";
 
 			     
-			  ?>
+			  
+?>
