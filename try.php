@@ -80,6 +80,8 @@ if ($mysqli->connect_errno) {
     }
 
 $mysqli->close();
+                                   echo "<a href='http://www.google.com'>here</a>";     
+
                 echo "<table style='border: solid 1px black;'>";
 				echo $final;
                     
@@ -88,16 +90,19 @@ $mysqli->close();
 
 			  // set the resulting array to associative
 			  $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-                    
 			  foreach(new TableRows(new RecursiveArrayIterator($stmt->fetchAll())) as $k=>$v) {
               if(strpos($v, 'http') !== 51){
               
               echo $v ;
               } else{
-                  $finals = "<th><a href= '".$v."'>";
+                  $finals = "<th><a href=$v";
+                  $final .="> . $v";
+                  $finals .= "</a></th>";
+                  #$finals .=$v;
+                  #$finals .="'></th>";
                   #$finals .= $v;
                  #$finals .="</a></th>";
-                  echo $finals;
+                  print $finals;
               }
 
 			  }
